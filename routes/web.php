@@ -11,6 +11,16 @@
 |
 */
 
-Route::get('/', function () {
-    return view('welcome');
-});
+Route::get('/cars', 'CarController@index');
+
+Route::get('/locations', 'LocationController@index');
+Route::post('/locations/{location}/like', 'likeController@store');
+
+Route::get('/extras', 'ExtraController@index');
+
+Route::get('/employees', 'EmployeeController@index');
+Route::get('/employees/{employee}', 'EmployeeController@index');
+
+Route::get('/', 'HomeController@index')->name('home');
+
+Auth::routes();
